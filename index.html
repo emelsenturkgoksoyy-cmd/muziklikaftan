@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🥁 Mehter Marşı – Arduino Projesi</title>
+<style>
+    /* Dinamik gradient arka plan */
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(-45deg, #1f1c2c, #928dab, #1f1c2c, #222222);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+    header {
+        text-align: center;
+        padding: 50px 20px;
+        color: #ff4b2b;
+        text-shadow: 0 0 10px #ff416c, 0 0 20px #ff4b2b;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        margin: 0;
+    }
+
+    header p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        color: #fcd34d;
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    main {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 20px;
+    }
+
+    section {
+        background: rgba(0,0,0,0.6);
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+        box-shadow: 0 15px 25px rgba(0,0,0,0.6);
+        transform: translateY(50px);
+        opacity: 0;
+        animation: fadeInUp 1s forwards;
+    }
+
+    section:nth-child(even) {
+        background: rgba(0,0,0,0.4);
+    }
+
+    @keyframes fadeInUp {
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    h2 {
+        color: #ff416c;
+        border-bottom: 2px solid #ff416c;
+        padding-bottom: 5px;
+        text-shadow: 0 0 5px #ff4b2b;
+    }
+
+    ul, ol {
+        margin-left: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    table, th, td {
+        border: 1px solid #ff416c;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background: rgba(255,65,108,0.3);
+    }
+
+    pre {
+        background: #111;
+        padding: 15px;
+        border-radius: 10px;
+        overflow-x: auto;
+        color: #00ff99;
+        text-shadow: 0 0 5px #00ff99;
+        box-shadow: inset 0 0 10px #00ff99;
+    }
+
+    code {
+        background: rgba(255,255,255,0.1);
+        padding: 3px 6px;
+        border-radius: 5px;
+        color: #ff416c;
+        font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+        header h1 { font-size: 2.2rem; }
+        header p { font-size: 1rem; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🥁 Mehter Marşı – Arduino Projesi</h1>
+    <p>İki Buzzer ile Mehter Marşı Çalma</p>
+</header>
+
+<main>
+    <section>
+        <h2>📌 Özellikler</h2>
+        <ul>
+            <li>Tek dosya (.cpp) ile çalışır</li>
+            <li>İki buzzer senkron çalar</li>
+            <li>Cızırtı azaltılmış</li>
+            <li>Tinkercad ve gerçek Arduino uyumlu</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>⚙️ Donanım Gereksinimleri</h2>
+        <ul>
+            <li>Arduino Uno veya benzeri</li>
+            <li>2 adet passive buzzer</li>
+            <li>2 adet direnç (220Ω veya 330Ω)</li>
+            <li>Breadboard ve jumper kablolar</li>
+        </ul>
+
+        <h3>Bağlantılar</h3>
+        <table>
+            <tr>
+                <th>Buzzer</th>
+                <th>Arduino Pin</th>
+            </tr>
+            <tr>
+                <td>Sağ el (melodi)</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>Sol el (bas)</td>
+                <td>9</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>💻 Yazılım</h2>
+        <ol>
+            <li>Arduino IDE veya Tinkercad kullanabilirsiniz</li>
+            <li>Kod dosyasını açın ve yükleyin</li>
+            <li>Buzzer’lar aynı anda melodiyi çalmaya başlayacak</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>📝 Kod Özet</h2>
+        <ul>
+            <li><code>melody[]</code> → Sağ el melodisi</li>
+            <li><code>bassMelody[]</code> → Sol el bas notaları</li>
+            <li><code>tone(pin, freq)</code> → Notayı çalar</li>
+            <li><code>noTone(pin)</code> → Buzzer’ı durdurur</li>
+        </ul>
+        <pre>
+// Örnek kullanım
+tone(BUZZER1, melody[i]);
+tone(BUZZER2, bassMelody[i]);
+delay(noteDurations[i]);
+noTone(BUZZER1);
+noTone(BUZZER2);
+        </pre>
+    </section>
+
+    <section>
+        <h2>🔧 Notlar</h2>
+        <ul>
+            <li>Bass ve melodiyi aynı anda çalmak için <code>tone()</code> fonksiyonları aynı anda çağrılır</li>
+            <li>Her notadan sonra kısa bir boşluk (<code>delay(30)</code>) cızırtıyı azaltır</li>
+            <li>Melodi ve bas notaları kolayca değiştirilebilir</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>💡 İleri Seviye</h2>
+        <p>Projeyi daha görsel hâle getirmek için <strong>Tinkercad simülasyonları</strong> ekleyebilir, hangi buzzer hangi notayı çalıyor görsel olarak takip edebilirsiniz.</p>
+    </section>
+</main>
+
+</body>
+</html>
