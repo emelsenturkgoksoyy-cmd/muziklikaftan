@@ -47,6 +47,3 @@ noTone(BUZZER2);
     Her notadan sonra kısa bir boşluk (delay(30)) cızırtıyı azaltır
     Melodi ve bas notaları kolayca değiştirilebilir
 
-💡 İleri Seviye
-
-Projeyi daha görsel hâle getirmek için Tinkercad simülasyonları ekleyebilir, hangi buzzer hangi notayı çalıyor görsel olarak takip edebilirsiniz.
